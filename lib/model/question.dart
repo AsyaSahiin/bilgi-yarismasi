@@ -7,9 +7,9 @@ class Question {
   Question.fromJson(Map<String, dynamic> json) {
     responseCode = json['response_code'];
     if (json['results'] != null) {
-      results =[];
+      results = [];
       json['results'].forEach((v) {
-        results!.add( Results.fromJson(v));
+        results!.add(Results.fromJson(v));
       });
     }
   }
@@ -46,7 +46,10 @@ class Results {
     difficulty = json['difficulty'];
     question = json['question'];
     correctAnswer = json['correct_answer'];
-    incorrectAnswers = json['incorrect_answers'].cast<String>();
+    incorrectAnswers = [];
+    json['incorrect_answers'].forEach((e) {
+      incorrectAnswers!.add(e);
+    });
   }
 
   Map<String, dynamic> toJson() {

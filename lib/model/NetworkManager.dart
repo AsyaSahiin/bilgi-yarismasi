@@ -15,7 +15,7 @@ class NetworkManager {
 
   Future<Question?> getQuestions() async {
     var response = await get(
-        Uri.parse("https://opentdb.com/api.php?amount=20&type=multiple"));
+        Uri.parse("https://www.opentdb.com/api.php?amount=20&type=multiple"));
     if (response.statusCode == 200) {
       return Question.fromJson(jsonDecode(response.body));
     }
